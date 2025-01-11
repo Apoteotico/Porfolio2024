@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]  # Solo se activa cuando se hace push a la rama 'main'
+  workflow_dispatch:  # Permite ejecutar manualmente el flujo de trabajo
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # Directorio donde se encuentran los archivos estáticos generados por Astro
+          folder: dist
+          # Asegúrate de que el contenido generado esté en la carpeta correcta
+          target_branch: gh-pages  # GitHub Pages usa la rama 'gh-pages' para el despliegue
+          # Nombre del repositorio
+          repository: ${{ github.repository }}

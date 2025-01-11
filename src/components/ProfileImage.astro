@@ -1,0 +1,42 @@
+---
+import { getImage } from 'astro:assets';
+import imageSrc from '../assets/Ei-removebg-HD.webp';
+
+const optimizedImage = await getImage({
+  src: imageSrc, 
+  width: 800,
+  height: 800,
+  format: 'webp',
+});
+---
+
+<style>
+  @media (max-width: 768px) {
+    img {
+      object-position: center center;
+      
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      display: none;
+    }
+  }
+</style>
+
+<div class="relative">
+  
+  <!-- Fondo degradado dinámico -->
+  <div class="absolute inset-0 -z-10 h-full w-full bg-gradient-to-tr from-purple-500 to-pink-500 opacity-30 blur-2xl"></div>
+
+  <!-- Imagen optimizada -->
+  <img
+    src={optimizedImage.src}
+    alt="Tu foto de perfil"
+    width="320"
+    height="320"
+    class="aspect-square w-80 object-cover shadow-[0_0_20px] dark:shadow-[0_0_30px] dark:shadow-black/50 shadow-gray-700/30 scale-x-[-1] object-[10%_center] min-w-[150px] rounded-lg mask-borders"
+    style="filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.9)) saturate(1.7);"
+  />
+</div>

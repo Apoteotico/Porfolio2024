@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Projects from '../components/Projects.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import ProfileImage from '../components/ProfileImage.astro';
+
+const PROJECTS = [
+  {
+    title: "Proyecto 1",
+    description: "Descripción del proyecto 1",
+    link: "https://proyecto1.com",
+    github: "https://github.com/usuario/proyecto1",
+    image: "/projects/proyecto1.webp",
+    tags: ["React", "Node.js", "MongoDB"]
+  },
+  {
+    title: "Proyecto 2",
+    description: "Descripción del proyecto 1",
+    link: "https://proyecto1.com",
+    github: "https://github.com/usuario/proyecto1",
+    image: "/projects/proyecto1.webp",
+    tags: ["React", "Node.js", "MongoDB"]
+  },
+  {
+    title: "Proyecto 3",
+    description: "Descripción del proyecto 1",
+    link: "https://proyecto1.com",
+    github: "https://github.com/usuario/proyecto1",
+    image: "/projects/proyecto1.webp",
+    tags: ["React", "Node.js", "MongoDB"]
+  },
+  {
+    title: "Proyecto 4",
+    description: "Descripción del proyecto 1",
+    link: "https://proyecto1.com",
+    github: "https://github.com/usuario/proyecto1",
+    image: "/projects/proyecto1.webp",
+    tags: ["React", "Node.js", "MongoDB"]
+  },
+  // ... add more projects
+]
+---
+
+<Layout title="Mi Portfolio">
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <div class="flex gap-8 items-center">
+        <div>
+          <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
+            Bienvenid@, soy <span class="text-purple-600 dark:text-purple-400">Apoteotico</span>
+          </h1>
+          <div class="flex items-center gap-4 mt-4">
+            <Badge>Disponible para trabajar</Badge>
+            <ThemeToggle />
+          </div>
+          <p class="mt-6 text-lg text-gray-800 dark:text-gray-300">
+            Desarrollador de software con experiencia en tecnologías como React, Node.js y MongoDB. Me encanta aprender, compartir conocimientos y trabajar en equipo 🚀
+          </p>
+        </div>
+        <ProfileImage />
+      </div>
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white">
+        Proyectos
+      </h2>
+      <Projects projects={PROJECTS} />
+    </SectionContainer>
+  </main>
+</Layout>
