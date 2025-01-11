@@ -11,7 +11,7 @@ Este portafolio ha sido construido utilizando las siguientes tecnologías:
 - **JavaScript (ES6+)**: Interactividad y funcionalidades adicionales.
 - **Astro**: Framework de desarrollo para la generación estática de la página.
 - **Tailwind CSS**: Framework de utilidad para un diseño rápido y moderno.
-- **GitHub Pages**: Para alojar y desplegar el proyecto.
+- **GitHub Pages**: Para alojar y desplegar el proyecto .
 
 ## **Contacto**
 
