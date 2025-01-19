@@ -1,0 +1,155 @@
+---
+import { getImage, Image } from 'astro:assets';
+import Html from "../icons/Tecnologias/Lenguajes/Html.astro";
+import Css from "../icons/Tecnologias/Lenguajes/Css.astro";
+import Js from "../icons/Tecnologias/Lenguajes/Js.astro";
+import React from "../icons/Tecnologias/Frameworks_Librerias/React.astro";
+import Github from "../icons/Social/Github.astro";
+import Link from "../icons/Social/Link.astro";
+import SocialIcon from "./Social_icon.astro";
+
+import generalDarkChrome from '../assets/projects/general dark chrome.png';
+import plomCachoDarkChrome from '../assets/projects/plom cacho dark chrome.png';
+import calculadoraUalaDarkChrome from '../assets/projects/calculadora uala dark chrome.png';
+
+const optimizedGeneralDarkChrome = await getImage({
+  src: generalDarkChrome,
+  width: 800,
+  height: 600,
+  format: 'webp',
+});
+
+const optimizedPlomCachoDarkChrome = await getImage({
+  src: plomCachoDarkChrome,
+  width: 800,
+  height: 600,
+  format: 'webp',
+});
+
+const optimizedCalculadoraUalaDarkChrome = await getImage({
+  src: calculadoraUalaDarkChrome,
+  width: 800,
+  height: 600,
+  format: 'webp',
+});
+
+const TAGS = {
+  Html: {
+    name: "Html",
+    class: "bg-[#963419] text-white",
+    icon: Html,
+  },
+  Css: {
+    name: "Css",
+    class: "bg-[#07436b] text-white",
+    icon: Css,
+  },
+  Js: {
+    name: "Js",
+    class: "bg-[#a39535] text-white",
+    icon: Js,
+  },
+  React: {
+    name: "React",
+    class: "bg-[#1c7777] text-white",
+    icon: React,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Blog full stack MERN",
+    description: "Trabaje en el crud de registro de usuarios, post y comentarios en el backend, aún no está completo ni deployado, funciones actuales: registro de usuarios y login con rutas protegidas y persistensia de datos (para que no se deslogee al dar f5), creación de post y eliminación de post,.",
+    link: "",
+    github: "https://github.com/Apoteotico/comision-3-Eitel-Hugo-Belinzoni",
+    image: optimizedGeneralDarkChrome.src,
+    tags: [TAGS.Html, TAGS.Css, TAGS.Js],
+  },
+  {
+    title: "Plomeria Cacho",
+    description:
+      "Pagina informativa de plomeria de la empresa Plomeria Cacho. Se utilizo Html, Css, tailwind, JS, y React+vite, deploy en vercel",
+    link: "https://web-plomeria-cacho.vercel.app/",
+    github: "https://github.com/Apoteotico/Plomeria-Cacho",
+    image: optimizedPlomCachoDarkChrome.src,
+    tags: [TAGS.Html, TAGS.Css, TAGS.Js, TAGS.React],
+  },
+  {
+    title: "Calculadora de FCI de Ualá",
+    description:
+      "Página para calcular interes compuesto al invertir pesos argentinos en el Fondo común de inversión de Ualá, el % del interes se debe agregar manualmente por las variaciones que tiene. Se utilizo Html, Css y JS",
+    link: "https://apoteotico.github.io/Calculadora-interes-compuesto-ual-/",
+    github: "https://github.com/Apoteotico/Calculadora-interes-compuesto-ual-",
+    image: optimizedCalculadoraUalaDarkChrome.src,
+    tags: [TAGS.Html, TAGS.Css, TAGS.Js],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
+        <div class="w-full md:w-1/2 flex items-center group">
+          <div class="relative flex flex-col items-center transition duration-500 ease-in-out transform shadow-xl overflow-hidden rounded-xl sm:rounded-xl lg:border lg:border-gray-800 group-hover:shadow-2xl">
+            <img
+              alt="Captura del Proyecto"
+              class="object-cover object-top w-full h-full transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 flex flex-col justify-center">
+          <h3 class="text-2xl font-bold mb-2  text-gray-800 dark:text-gray-300">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2 ">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="mt-2 text-lg mb-4  text-gray-800 dark:text-gray-300">
+            {description}
+          </div>
+
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+            {github && (
+              <SocialIcon
+                href={github}
+                class="flex items-center gap-x-2 p-2 rounded-lg border border-gray-300 dark:border-zinc-700 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 transition"
+              >
+                <Github class="size-6 text-black dark:text-white bg-zinc-800 dark:bg-transparent rounded-full p-1" />
+                <span class="text-gray-800 dark:text-gray-100 font-medium">
+                  Code
+                </span>
+              </SocialIcon>
+            )}
+            {link && (
+              <SocialIcon
+                href={link}
+                class="flex items-center gap-x-2 p-2 rounded-lg border border-gray-300 dark:border-zinc-700 bg-gray-100 dark:bg-zinc-800 hover:bg-gray-200 dark:hover:bg-zinc-700 transition"
+              >
+                <Link class="size-4 text-black dark:text-white" />
+                <span class="text-gray-800 dark:text-gray-100 font-medium">
+                  Preview
+                </span>
+              </SocialIcon>
+            )}
+          </footer>
+        </div>
+      </article>
+    ))
+  }
+</div>
