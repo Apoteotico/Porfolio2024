@@ -5,6 +5,8 @@ import SectionContainer from '../components/SectionContainer.astro';
 import Projects from '../components/Projects.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import ProfileImage from '../components/ProfileImage.astro';
+import LinkedinIcon from '../icons/Social/Linkedin.astro'; // Importamos el ícono de LinkedIn
+import DiscordIcon from '../icons/Social/Discord.astro';
 
 const PROJECTS = [
   {
@@ -12,52 +14,52 @@ const PROJECTS = [
     description: "Descripción del proyecto 1",
     link: "https://proyecto1.com",
     github: "https://github.com/usuario/proyecto1",
-    image: "/projects/proyecto1.webp",
+    image: "/Portafolio2024/projects/proyecto1.webp", // Ajustamos la ruta de imágenes
     tags: ["React", "Node.js", "MongoDB"]
   },
   {
     title: "Proyecto 2",
-    description: "Descripción del proyecto 1",
-    link: "https://proyecto1.com",
-    github: "https://github.com/usuario/proyecto1",
-    image: "/projects/proyecto1.webp",
+    description: "Descripción del proyecto 2",
+    link: "https://proyecto2.com",
+    github: "https://github.com/usuario/proyecto2",
+    image: "/Portafolio2024/projects/proyecto2.webp", // Ajustamos la ruta de imágenes
     tags: ["React", "Node.js", "MongoDB"]
   },
   {
     title: "Proyecto 3",
-    description: "Descripción del proyecto 1",
-    link: "https://proyecto1.com",
-    github: "https://github.com/usuario/proyecto1",
-    image: "/projects/proyecto1.webp",
+    description: "Descripción del proyecto 3",
+    link: "https://proyecto3.com",
+    github: "https://github.com/usuario/proyecto3",
+    image: "/Portafolio2024/projects/proyecto3.webp", // Ajustamos la ruta de imágenes
     tags: ["React", "Node.js", "MongoDB"]
-  },
-  {
-    title: "Proyecto 4",
-    description: "Descripción del proyecto 1",
-    link: "https://proyecto1.com",
-    github: "https://github.com/usuario/proyecto1",
-    image: "/projects/proyecto1.webp",
-    tags: ["React", "Node.js", "MongoDB"]
-  },
-  // ... add more projects
+  }
 ]
 ---
 
-<Layout title="Mi Portfolio">
+<Layout title="Apoteotico Eitel Hugo Belinzoni">
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
       <div class="flex gap-8 items-center">
         <div>
           <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
-            Bienvenid@, soy <span class="text-purple-600 dark:text-purple-400">Apoteotico</span>
+            Bienvenid@, soy <span class="text-purple-600 dark:text-purple-400">Eitel Hugo, Belinzoni</span>
           </h1>
           <div class="flex items-center gap-4 mt-4">
             <Badge>Disponible para trabajar</Badge>
             <ThemeToggle />
           </div>
           <p class="mt-6 text-lg text-gray-800 dark:text-gray-300">
-            Desarrollador de software con experiencia en tecnologías como React, Node.js y MongoDB. Me encanta aprender, compartir conocimientos y trabajar en equipo 🚀
+            Desarrollador de software con experiencia en tecnologías como HTML, CSS, JavaScript, React, Node.js, Express y MongoDB. Me encanta aprender, compartir conocimientos y trabajar en equipo 🚀
           </p>
+          <div class="flex items-center gap-4 mt-4">
+            <!-- Agregamos el ícono de LinkedIn con un enlace -->
+            <a href="https://www.linkedin.com/in/eitel-belinzoni/" target="_blank" rel="noopener noreferrer">
+              <LinkedinIcon />
+            </a>
+            <a href="https://discord.gg/4rwCrKhCKt" target="_blank" rel="noopener noreferrer">
+              <DiscordIcon />
+            </a>
+          </div>
         </div>
         <ProfileImage />
       </div>
