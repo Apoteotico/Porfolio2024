@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro';
-import SectionContainer from '../components/SectionContainer.astro';
-import Projects from '../components/Projects.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
-import ProfileImage from '../components/ProfileImage.astro';
-import LinkedinIcon from '../icons/Social/Linkedin.astro'; // Importamos el ícono de LinkedIn
-import DiscordIcon from '../icons/Social/Discord.astro';
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Projects from "../components/Projects.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import ProfileImage from "../components/ProfileImage.astro";
+import LinkedinIcon from "../icons/Social/Linkedin.astro"; // Importamos el ícono de LinkedIn
+import DiscordIcon from "../icons/Social/Discord.astro";
 
 const PROJECTS = [
   {
@@ -15,7 +15,7 @@ const PROJECTS = [
     link: "https://proyecto1.com",
     github: "https://github.com/usuario/proyecto1",
     image: "/Portafolio2024/projects/proyecto1.webp", // Ajustamos la ruta de imágenes
-    tags: ["React", "Node.js", "MongoDB"]
+    tags: ["React", "Node.js", "MongoDB"],
   },
   {
     title: "Proyecto 2",
@@ -23,7 +23,7 @@ const PROJECTS = [
     link: "https://proyecto2.com",
     github: "https://github.com/usuario/proyecto2",
     image: "/Portafolio2024/projects/proyecto2.webp", // Ajustamos la ruta de imágenes
-    tags: ["React", "Node.js", "MongoDB"]
+    tags: ["React", "Node.js", "MongoDB"],
   },
   {
     title: "Proyecto 3",
@@ -31,32 +31,54 @@ const PROJECTS = [
     link: "https://proyecto3.com",
     github: "https://github.com/usuario/proyecto3",
     image: "/Portafolio2024/projects/proyecto3.webp", // Ajustamos la ruta de imágenes
-    tags: ["React", "Node.js", "MongoDB"]
-  }
-]
+    tags: ["React", "Node.js", "MongoDB"],
+  },
+];
 ---
 
 <Layout title="Apoteotico Eitel Hugo Belinzoni">
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
+      <!-- Contenedor del ThemeToggle -->
+      <div class="fixed top-4 right-4 z-10">
+        <ThemeToggle class="w-10 h-10" />
+        {/* Ajusta el tamaño según lo que necesites */}
+      </div>
+
       <div class="flex gap-8 items-center">
         <div>
-          <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
-            Bienvenid@, soy <span class="text-purple-600 dark:text-purple-400">Eitel Hugo, Belinzoni</span>
+          <h1
+            class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+          >
+            Bienvenid@, soy <span class="text-purple-600 dark:text-purple-400"
+              >Eitel Hugo, Belinzoni</span
+            >
           </h1>
-          <div class="flex items-center gap-4 mt-4">
+          <div class="flex items-center gap-5 mt-4">
             <Badge>Disponible para trabajar</Badge>
-            <ThemeToggle />
+          </div>
+          <div class="flex items-center gap-5 mt-4">
+            <!-- Otros elementos -->
           </div>
           <p class="mt-6 text-lg text-gray-800 dark:text-gray-300">
-            Desarrollador de software con experiencia en tecnologías como HTML, CSS, JavaScript, React, Node.js, Express y MongoDB. <br> Me encanta aprender, compartir conocimientos y trabajar en equipo 🚀
+            Desarrollador de software con experiencia en tecnologías como HTML,
+            CSS, JavaScript, React, Node.js, Express y MongoDB. <br /> Me encanta
+            aprender, compartir conocimientos y trabajar en equipo 🚀
           </p>
           <div class="flex items-center gap-4 mt-4">
             <!-- Agregamos el ícono de LinkedIn con un enlace -->
-            <a href="https://www.linkedin.com/in/eitel-belinzoni/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/eitel-belinzoni/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <LinkedinIcon />
             </a>
-            <a href="https://discord.gg/4rwCrKhCKt" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://discord.gg/4rwCrKhCKt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <DiscordIcon />
             </a>
           </div>
@@ -66,7 +88,9 @@ const PROJECTS = [
     </SectionContainer>
 
     <SectionContainer id="proyectos">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 justify-center items-center text-black/80 dark:text-white">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 justify-center items-center text-black/80 dark:text-white"
+      >
         Proyectos
       </h2>
       <Projects projects={PROJECTS} />
